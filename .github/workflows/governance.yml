@@ -30,5 +30,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+      - name: Install validation dependencies
+        run: python -m pip install "jsonschema>=4.17,<6"
       - name: Validate neutral-governance records
         run: python tools/validate_governance.py

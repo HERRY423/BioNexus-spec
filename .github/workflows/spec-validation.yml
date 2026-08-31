@@ -1,0 +1,27 @@
+name: BioNexus Specification Validation
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate-specs:
+    name: Specification, Schema & Governance Integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Validation Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml jsonschema
+      - name: Validate BNS Specification Registry & Monotonicity
+        run: python tools/validate_spec_registry.py
+      - name: Validate JSON Schemas & Standard Manifests
+        run: python tools/validate_schemas.py
+      - name: Validate BNS-022 Neutral Governance Registries
+        run: python tools/validate_governance.py

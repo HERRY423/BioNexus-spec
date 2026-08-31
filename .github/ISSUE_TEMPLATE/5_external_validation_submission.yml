@@ -1,0 +1,50 @@
+name: 🏆 External Validation Submission
+description: Submit independent dataset validation, peer benchmark results, or external scientific review sign-off.
+title: "[Validation]: "
+labels: ["external-validation", "scientific-review-needed"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## External Scientific Validation Submission
+        To advance a BioNexus capability from `VALIDATED` to `CERTIFIED` (satisfying the 14/14 BNS-CF-001 criteria), independent external validation and reviewer sign-offs are required.
+  - type: input
+    id: capability_id
+    attributes:
+      label: Capability Under Validation
+      description: The BioNexus capability validated (e.g., `scrna.pseudobulk_de`, `scrna.annotation_evidence`, `spatial.inference_validity`).
+      placeholder: "e.g., scrna.pseudobulk_de"
+    validations:
+      required: true
+  - type: input
+    id: public_dataset
+    attributes:
+      label: Public Benchmark Dataset & Accession
+      description: GEO, Zenodo, SRA, or BioStudies accession.
+      placeholder: "e.g., GEO GSE96583 or ArrayExpress E-MTAB-..."
+    validations:
+      required: true
+  - type: textarea
+    id: ground_truth_methodology
+    attributes:
+      label: Independent Ground Truth Methodology
+      description: How was the ground truth defined independently of the computational pipeline? (e.g. FACS sorting, orthogonal qPCR, published literature curation).
+      placeholder: "Describe truth set construction..."
+    validations:
+      required: true
+  - type: textarea
+    id: quantitative_results
+    attributes:
+      label: Quantitative Validation Metrics
+      description: Precision, recall, support fraction, Jaccard similarity, power curves, or execution stats.
+      placeholder: "Published support fraction: 0.66 >= 0.50\nEmpirical FDR: 0.00 <= 0.05\nPower @ LFC 2.0: 100%"
+    validations:
+      required: true
+  - type: textarea
+    id: reviewer_declaration
+    attributes:
+      label: Independent Reviewer Declaration / Contact
+      description: Name, institutional affiliation, or domain expertise of the reviewer submitting/endorsing this validation.
+      placeholder: "Dr. Jane Doe, Computational Biologist at..."
+    validations:
+      required: true

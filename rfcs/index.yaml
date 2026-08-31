@@ -1,0 +1,7 @@
+# BioNexus RFC Index
+rfcs:
+  - id: RFC-0001
+    file: RFC-0001-rfc-process.md
+    title: The BioNexus RFC Process and Governance Guidelines
+    status: IMPLEMENTED
+    created: 2026-08-31

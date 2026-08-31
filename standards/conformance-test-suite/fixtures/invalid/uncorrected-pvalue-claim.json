@@ -1,0 +1,13 @@
+{
+  "claim_id": "CLM_RAW_PVAL_OVERCLAIM_006",
+  "test_name": "genome_wide_association_scan",
+  "num_tests": 20000,
+  "top_hit": {
+    "gene": "STAT3",
+    "raw_pvalue": 0.004,
+    "adjusted_pvalue_fdr": 0.65
+  },
+  "asserted_claim": "STAT3 is significantly differentially expressed at p < 0.05",
+  "multiple_testing_correction_omitted": true,
+  "failure_mode": "BN-F002"
+}

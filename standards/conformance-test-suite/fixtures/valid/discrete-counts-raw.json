@@ -1,0 +1,30 @@
+{
+  "matrix_id": "GSM501234_hPBMC_control_rep1",
+  "biological_unit": "cell",
+  "species_taxid": "9606",
+  "species_name": "Homo sapiens",
+  "matrix_state": "raw_counts",
+  "dimensions": {
+    "n_obs": 1200,
+    "n_vars": 5
+  },
+  "var_names": ["GAPDH", "ACTB", "CD3D", "CD4", "CD8A"],
+  "obs_metadata": {
+    "condition": "control",
+    "batch": "batch_1",
+    "replicate": 1
+  },
+  "sample_count": 6,
+  "data_excerpt": [
+    [142, 210, 45, 12, 0],
+    [98, 185, 33, 8, 0],
+    [155, 310, 0, 0, 89],
+    [88, 140, 120, 42, 0]
+  ],
+  "invariants": {
+    "is_discrete": true,
+    "has_negative_values": false,
+    "is_normalized": false,
+    "scale": "linear_counts"
+  }
+}

@@ -1,12 +1,18 @@
 # BioNexus Specifications (BNS)
 ### Open Standards for Epistemic Reliability, Scientific Invariants, and Provenance in AI-Assisted Biology
 
+[![BNS-conformant](standards/bns-badge/assets/bns-conformant.svg)](standards/bns-badge/SPECIFICATION.md)
 [![Specification Version](https://img.shields.io/badge/spec-v1.0.0--rc.4-blue.svg)](spec/registry.yaml)
+[![Conformance Suite](https://img.shields.io/badge/CTS-BCTS--v1.0.0-10B981.svg)](standards/conformance-test-suite/)
 [![License: CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](LICENSE)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 [![Governance: Forming Council](https://img.shields.io/badge/governance-neutral%20forming-orange.svg)](governance/)
 
 The **BioNexus Specifications (BNS)** define a vendor-neutral, language-independent open standard establishing **deterministic scientific invariants, epistemic evidence verification, and cryptographic provenance** for artificial intelligence agents and computational workflows in the life sciences.
+
+> **"谁能颁发合格证，谁就是行业的度量衡——这是功能复制不掉的位置。"**  
+> *(Whoever issues the certificate of conformity becomes the industry standard yardstick — an epistemic moat that cannot be copied by feature duplication.)*
+
 
 ---
 

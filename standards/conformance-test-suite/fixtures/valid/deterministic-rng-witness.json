@@ -1,0 +1,18 @@
+{
+  "witness_id": "WITNESS-RNG-0099",
+  "fixed_seed": 42,
+  "runs": [
+    {
+      "iteration": 1,
+      "host_env": "linux-x86_64",
+      "umap_embedding_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+    },
+    {
+      "iteration": 2,
+      "host_env": "darwin-arm64",
+      "umap_embedding_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+    }
+  ],
+  "deterministic_match": true,
+  "relative_tolerance": 1e-7
+}

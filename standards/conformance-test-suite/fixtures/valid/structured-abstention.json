@@ -1,0 +1,17 @@
+{
+  "schema_version": "bns.evidence-card.v2",
+  "card_id": "EVC-REFUSAL-0012",
+  "execution_status": "REFUSED_PRECONDITION_VIOLATION",
+  "refusal_reason": {
+    "failure_code": "BN-F006",
+    "failure_class": "INSUFFICIENT_SAMPLE_SIZE",
+    "message": "Differential expression requires at least n=3 biological replicates per group; received n=1.",
+    "severity": "FATAL_PRECONDITION"
+  },
+  "remediation": {
+    "actionable_fix": "Provide at least 3 distinct biological replicates per condition to enable variance estimation.",
+    "documentation_ref": "https://bionexus.org/spec/BNS-002#sample-size"
+  },
+  "silent_fallback_attempted": false,
+  "toy_proxy_used": false
+}

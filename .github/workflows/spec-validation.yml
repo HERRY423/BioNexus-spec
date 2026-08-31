@@ -25,3 +25,6 @@ jobs:
         run: python tools/validate_schemas.py
       - name: Validate BNS-022 Neutral Governance Registries
         run: python tools/validate_governance.py
+      - name: Validate Conformance Test Suite (BCTS) & BNS-Conformant Badges
+        run: python tools/validate_conformance.py
+

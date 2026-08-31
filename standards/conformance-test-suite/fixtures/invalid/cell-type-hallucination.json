@@ -1,0 +1,12 @@
+{
+  "claim_id": "CLM_HALLUCINATED_CELL_005",
+  "workflow": "single_cell_clustering",
+  "cluster_id": "cluster_0",
+  "assigned_cell_type": "Regulatory T Cell (Foxp3+)",
+  "evidence": {
+    "basis": "unreferenced_llm_hallucination",
+    "has_reference_atlas_warrant": false,
+    "has_marker_expression_proof": false
+  },
+  "failure_mode": "BN-F005"
+}

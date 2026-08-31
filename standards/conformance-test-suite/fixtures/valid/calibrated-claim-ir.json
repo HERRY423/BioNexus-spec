@@ -1,0 +1,28 @@
+{
+  "schema_version": "bns.claim-semantics-ir.v1",
+  "claim_id": "CLM-STAT-0042",
+  "claim_type": "associative",
+  "modality": "transcriptomic_differential_expression",
+  "entities": {
+    "target_gene": "GAPDH",
+    "condition_contrast": "treated_vs_control",
+    "organism_taxid": "9606"
+  },
+  "metrics": {
+    "log2_fold_change": 2.45,
+    "raw_pvalue": 1.2e-6,
+    "adjusted_pvalue_fdr": 4.5e-5,
+    "multiple_testing_method": "Benjamini-Hochberg"
+  },
+  "warrant": {
+    "level": "supported_correlative",
+    "ceiling": "associative",
+    "causal_assertion_allowed": false,
+    "cell_type_annotation_status": "unasserted_marker_only"
+  },
+  "audit_trail": {
+    "assertion_firewall_passed": true,
+    "fdr_applied": true,
+    "n_samples": 8
+  }
+}

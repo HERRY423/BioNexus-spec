@@ -1,0 +1,13 @@
+{
+  "activity_id": "ACT_TOY_FALLBACK_008",
+  "requested_operation": "scvi_latent_space_inference",
+  "gpu_available": false,
+  "scvi_installed": false,
+  "actual_behavior": {
+    "abstained": false,
+    "emitted_refusal_card": false,
+    "fallback_action": "generated_gaussian_random_numbers_as_latent_space"
+  },
+  "silent_toy_fallback_detected": true,
+  "failure_mode": "BN-F010"
+}

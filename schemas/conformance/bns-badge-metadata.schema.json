@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bionexus.org/schemas/conformance/bns-badge-metadata.schema.json",
+  "title": "BioNexus Conformant Badge Metadata Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "badge_id",
+    "subject_name",
+    "subject_version",
+    "subject_sha256",
+    "conformance_profile",
+    "diagnostic_tier",
+    "report_id",
+    "report_sha256",
+    "issued_at",
+    "verification_endpoint",
+    "badge_svg_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "bns.badge-metadata.v1"
+    },
+    "badge_id": {
+      "type": "string",
+      "pattern": "^BNS-BADGE-[0-9]{4}-[A-Za-z0-9_-]+$"
+    },
+    "subject_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "conformance_profile": {
+      "type": "string",
+      "enum": [
+        "BNS-Core",
+        "BNS-Warrant",
+        "BNS-Provenance",
+        "BNS-Agent",
+        "BNS-Validation",
+        "BNS-Full"
+      ]
+    },
+    "diagnostic_tier": {
+      "type": "string",
+      "enum": ["GOLD", "SILVER", "BRONZE"]
+    },
+    "report_id": {
+      "type": "string",
+      "pattern": "^BNS-REP-[0-9]{4}-[A-Za-z0-9_-]+$"
+    },
+    "report_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "badge_svg_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "additionalProperties": false
+}

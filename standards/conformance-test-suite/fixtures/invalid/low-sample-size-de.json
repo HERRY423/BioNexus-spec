@@ -1,0 +1,14 @@
+{
+  "experiment_id": "EXP_LOW_SAMPLE_003",
+  "method": "differential_expression",
+  "biological_unit": "bulk_tissue",
+  "samples": {
+    "group_A": ["sample_1"],
+    "group_B": ["sample_2"]
+  },
+  "sample_count": 2,
+  "invariants": {
+    "min_replicates_per_group": 1,
+    "meets_minimum_sample_threshold": false
+  }
+}

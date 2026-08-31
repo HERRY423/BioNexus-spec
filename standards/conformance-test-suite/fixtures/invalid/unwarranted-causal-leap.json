@@ -1,0 +1,17 @@
+{
+  "claim_id": "CLM_CAUSAL_LEAP_007",
+  "study_design": "observational_cross_sectional",
+  "observed_correlation": {
+    "feature_a": "Gene_X_expression",
+    "feature_b": "disease_severity",
+    "spearman_rho": 0.42,
+    "pvalue": 1e-4
+  },
+  "asserted_claim": "Gene X causes neurodegeneration and is a validated therapeutic target",
+  "epistemic_warrant_violation": {
+    "allowed_ceiling": "associative",
+    "attempted_ceiling": "mechanistic_causal",
+    "has_knockout_or_perturbation_evidence": false
+  },
+  "failure_mode": "BN-F008"
+}

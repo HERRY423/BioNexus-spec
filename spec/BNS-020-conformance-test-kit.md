@@ -144,3 +144,28 @@ governance and impartiality gates.
   profiles and MUST NOT pass while any component is failed or unassessed.
 - **BNS-CT-005** Profile results are technical diagnostics and MUST retain
   `certification_effect=NONE` while BNS-GV-020 is unmet.
+
+---
+
+## 7. Normative Conformance Test Suite (BCTS) & Automated Verification
+
+- **BNS-CT-006** The standard MUST maintain an authoritative machine-readable
+  test suite manifest (`standards/conformance-test-suite/manifest.json`) adhering to
+  `schemas/conformance/conformance-suite.schema.json` with positive, negative, and
+  adversarial test fixtures for all 8 dimensions.
+- **BNS-CT-007** Conformance test runners MUST output a validated JSON audit report
+  conforming to `schemas/conformance/conformance-report.schema.json`, including candidate
+  provenance, target content SHA-256 hash, dimension-level pass/fail statistics,
+  profile fulfillment decisions, and canonical integrity digests.
+- **BNS-CT-008** `tools/validate_conformance.py` MUST be executed in all specification
+  CI pipelines to guarantee test vector validity, runner correctness, and schema adherence.
+
+---
+
+## 8. "BNS-conformant" Badge Program & Verifiability
+
+- **BNS-CT-009** The "BNS-conformant" badge is governed by `standards/bns-badge/SPECIFICATION.md`
+  and `standards/bns-badge/BADGING_POLICY.md`. Every emitted badge MUST be
+  cryptographically bound to a valid Conformance Test Report digest and MUST NOT claim
+  CAB accreditation unless certified under BNS-022.
+

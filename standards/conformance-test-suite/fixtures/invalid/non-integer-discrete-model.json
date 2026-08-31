@@ -1,0 +1,19 @@
+{
+  "matrix_id": "TRAP_NON_INT_COUNTS_002",
+  "biological_unit": "cell",
+  "species_taxid": "9606",
+  "matrix_state": "raw_counts",
+  "dimensions": {
+    "n_obs": 50,
+    "n_vars": 2
+  },
+  "var_names": ["CD4", "CD8A"],
+  "data_excerpt": [
+    [12.45, 0.0],
+    [3.14159, 8.8]
+  ],
+  "invariants": {
+    "is_discrete": false,
+    "has_negative_values": false
+  }
+}

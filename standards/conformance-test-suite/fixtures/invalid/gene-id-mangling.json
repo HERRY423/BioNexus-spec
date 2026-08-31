@@ -1,0 +1,19 @@
+{
+  "matrix_id": "TRAP_GENE_ID_MANGLE_009",
+  "biological_unit": "gene_expression",
+  "species_taxid": "9606",
+  "var_names": [
+    "1-Mar",
+    "2-Sep",
+    "OCT4",
+    "NANOG"
+  ],
+  "mangling_detected": {
+    "has_excel_date_conversion": true,
+    "mangled_symbols": {
+      "1-Mar": "MARCH1 (MARCHF1)",
+      "2-Sep": "SEPT2 (SEPTIN2)"
+    }
+  },
+  "failure_mode": "BN-F009"
+}

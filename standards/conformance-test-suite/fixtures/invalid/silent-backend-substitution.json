@@ -1,0 +1,12 @@
+{
+  "activity_id": "ACT_MASQUERADE_004",
+  "requested_backend": "scanpy",
+  "requested_version": ">=1.9.0",
+  "actual_backend": "internal_mock_heuristic_toy",
+  "silent_substitution_detected": true,
+  "failure_mode": "BN-F010",
+  "provenance_witness": {
+    "module_path": "custom_mock_helpers.py",
+    "is_canonical_community_package": false
+  }
+}

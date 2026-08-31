@@ -1,0 +1,38 @@
+{
+  "prov_version": "1.0",
+  "activity_id": "urn:bionexus:activity:deseq2-de-analysis-001",
+  "activity_type": "differential_expression_analysis",
+  "software_agent": {
+    "name": "pydeseq2",
+    "distribution_version": "0.4.11",
+    "package_name": "pydeseq2",
+    "symbol_entrypoint": "pydeseq2.dds.DeseqDataSet",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "execution_environment": {
+    "os": "Linux-5.15.0-x86_64",
+    "python_version": "3.11.8",
+    "random_seed": 42
+  },
+  "inputs": [
+    {
+      "role": "raw_count_matrix",
+      "entity_uri": "urn:bionexus:dataset:counts.h5ad",
+      "sha256": "4a53cda1efb6487e974e447b973948e71887e59b9772bf29a6604230188686d4"
+    },
+    {
+      "role": "sample_metadata",
+      "entity_uri": "urn:bionexus:dataset:design_matrix.csv",
+      "sha256": "b5d4045c3f466fa91fe2cc6abe79232a1a57cdf104f7a26e716e0a1e2789df78"
+    }
+  ],
+  "outputs": [
+    {
+      "role": "de_results_table",
+      "entity_uri": "urn:bionexus:result:de_genes.csv",
+      "sha256": "9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca7"
+    }
+  ],
+  "started_at": "2026-08-31T00:00:00Z",
+  "ended_at": "2026-08-31T00:01:23Z"
+}

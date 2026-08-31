@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bionexus.org/schemas/conformance/conformance-suite.schema.json",
+  "title": "BioNexus Conformance Test Suite Manifest Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "suite_id",
+    "title",
+    "version",
+    "dimensions",
+    "profiles",
+    "cases"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "bns.conformance-suite.v1"
+    },
+    "suite_id": {
+      "type": "string",
+      "pattern": "^BNS-CTS-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+.*$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "string",
+        "enum": [
+          "BIOLOGICAL SEMANTICS",
+          "INPUT STATE HONESTY",
+          "BACKEND IDENTITY",
+          "PROVENANCE",
+          "CLAIM WARRANT",
+          "ABSTENTION",
+          "FAILURE HANDLING",
+          "CROSS-HOST CONSISTENCY"
+        ]
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "conformance-test-case.schema.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

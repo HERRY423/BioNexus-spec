@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bionexus.org/schemas/conformance/conformance-test-case.schema.json",
+  "title": "BioNexus Conformance Test Case Schema",
+  "type": "object",
+  "required": [
+    "id",
+    "dimension",
+    "rule_ref",
+    "severity",
+    "description",
+    "target_type",
+    "input_fixture",
+    "assertion",
+    "applicable_profiles"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^BCTK-[A-Z]{3}-[0-9]{3}$"
+    },
+    "dimension": {
+      "type": "string",
+      "enum": [
+        "BIOLOGICAL SEMANTICS",
+        "INPUT STATE HONESTY",
+        "BACKEND IDENTITY",
+        "PROVENANCE",
+        "CLAIM WARRANT",
+        "ABSTENTION",
+        "FAILURE HANDLING",
+        "CROSS-HOST CONSISTENCY"
+      ]
+    },
+    "rule_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_type": {
+      "type": "string",
+      "enum": [
+        "matrix",
+        "provenance",
+        "claim_ir",
+        "execution_witness",
+        "refusal_card",
+        "semantic_envelope",
+        "package",
+        "agent_payload"
+      ]
+    },
+    "input_fixture": {
+      "type": "string",
+      "pattern": "^fixtures/(valid|invalid)/[a-z0-9-]+\\.json$"
+    },
+    "assertion": {
+      "type": "object",
+      "required": ["expected_pass"],
+      "properties": {
+        "expected_pass": {
+          "type": "boolean"
+        },
+        "expected_failure_mode": {
+          "type": "string"
+        },
+        "required_invariants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_evidence_level": {
+          "type": "string"
+        },
+        "refusal_expected": {
+          "type": "boolean"
+        },
+        "expected_taxa": {
+          "type": "string"
+        },
+        "expected_checksum_algorithm": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "applicable_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

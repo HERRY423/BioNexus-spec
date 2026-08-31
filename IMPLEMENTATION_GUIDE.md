@@ -30,3 +30,37 @@ Outputs MUST be wrapped in a structured EvidenceCard containing execution envelo
 - **Nextflow nf-core Module**: modules/local/bns019_receipt
 - **MCP Server Implementation**: bionexus-local-mcp
 
+---
+
+## 4. Passing the Conformance Test Suite & Displaying "BNS-conformant" Badges
+
+To verify and certify that your runtime, agent, or workflow adheres to BioNexus invariants:
+
+### Step 1: Run the Normative Conformance Test Suite (BCTS)
+```bash
+python tools/bns_conformance_runner.py run \
+  --manifest standards/conformance-test-suite/manifest.json \
+  --name "MyAgentRuntime" \
+  --version "1.2.0" \
+  --output-report bns-report.json
+```
+
+### Step 2: Verify Report Cryptographic Integrity
+```bash
+python tools/bns_conformance_runner.py verify --report bns-report.json
+```
+
+### Step 3: Generate and Embed Your "BNS-conformant" Badge
+```bash
+python tools/bns_conformance_runner.py badge \
+  --report bns-report.json \
+  --profile BNS-Full \
+  --output bns-conformant.svg
+```
+
+In your repository `README.md`, embed the badge linked to your verifiable report:
+```markdown
+[![BNS-conformant](https://raw.githubusercontent.com/HERRY423/BioNexus-spec/main/standards/bns-badge/assets/bns-conformant.svg)](https://bionexus.org/verify?report=bns-report.json)
+```
+
+

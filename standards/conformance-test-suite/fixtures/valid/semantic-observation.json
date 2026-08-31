@@ -1,0 +1,17 @@
+{
+  "$schema": "https://bionexus.org/schemas/conventions/envelope.schema.json",
+  "observation_id": "OBS-2026-0001",
+  "attributes": {
+    "biological.unit": "cell",
+    "matrix.state": "log_normalized",
+    "claim.type": "associative",
+    "evidence.type": ["computational_result"],
+    "confound.type": ["segmentation", "transcript_leakage"],
+    "warrant.level": "fragile",
+    "warrant.status": "assessed"
+  },
+  "provenance": {
+    "workflow_id": "wf-scrna-gold-chain",
+    "timestamp": "2026-08-31T00:00:00Z"
+  }
+}

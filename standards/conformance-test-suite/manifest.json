@@ -1,0 +1,304 @@
+{
+  "$schema": "../../schemas/conformance/conformance-suite.schema.json",
+  "schema_version": "bns.conformance-suite.v1",
+  "suite_id": "BNS-CTS-001",
+  "title": "BioNexus Normative Conformance Test Suite (BCTS)",
+  "version": "1.0.0",
+  "description": "Authoritative test vectors and invariant test cases for assessing third-party scientific AI agents, bioinformatics runtimes, MCP servers, and analysis workflows against the BioNexus Specifications (BNS-001 ~ BNS-023).",
+  "dimensions": [
+    "BIOLOGICAL SEMANTICS",
+    "INPUT STATE HONESTY",
+    "BACKEND IDENTITY",
+    "PROVENANCE",
+    "CLAIM WARRANT",
+    "ABSTENTION",
+    "FAILURE HANDLING",
+    "CROSS-HOST CONSISTENCY"
+  ],
+  "profiles": {
+    "BNS-Core": [
+      "BIOLOGICAL SEMANTICS",
+      "INPUT STATE HONESTY",
+      "BACKEND IDENTITY",
+      "ABSTENTION"
+    ],
+    "BNS-Warrant": [
+      "CLAIM WARRANT",
+      "ABSTENTION",
+      "FAILURE HANDLING"
+    ],
+    "BNS-Provenance": [
+      "PROVENANCE",
+      "BACKEND IDENTITY"
+    ],
+    "BNS-Agent": [
+      "CROSS-HOST CONSISTENCY",
+      "CLAIM WARRANT",
+      "ABSTENTION"
+    ],
+    "BNS-Validation": [
+      "FAILURE HANDLING",
+      "CROSS-HOST CONSISTENCY",
+      "PROVENANCE"
+    ],
+    "BNS-Full": [
+      "BIOLOGICAL SEMANTICS",
+      "INPUT STATE HONESTY",
+      "BACKEND IDENTITY",
+      "PROVENANCE",
+      "CLAIM WARRANT",
+      "ABSTENTION",
+      "FAILURE HANDLING",
+      "CROSS-HOST CONSISTENCY"
+    ]
+  },
+  "cases": [
+    {
+      "id": "BCTK-SEM-001",
+      "dimension": "BIOLOGICAL SEMANTICS",
+      "rule_ref": "BNS-002 §2 (BN-F009)",
+      "severity": "HIGH",
+      "description": "Gene Identifier Hygiene: Rejects Excel-mangled date strings and invalid identifiers.",
+      "target_type": "matrix",
+      "input_fixture": "fixtures/invalid/gene-id-mangling.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F009",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-SEM-002",
+      "dimension": "BIOLOGICAL SEMANTICS",
+      "rule_ref": "BNS-002 §3 (BNS-II-001)",
+      "severity": "CRITICAL",
+      "description": "Expression Matrix Scale Semantics: Validates discrete counts representation against claimed matrix state.",
+      "target_type": "matrix",
+      "input_fixture": "fixtures/valid/discrete-counts-raw.json",
+      "assertion": {
+        "expected_pass": true,
+        "required_invariants": ["is_discrete", "scale_honesty"]
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-SEM-003",
+      "dimension": "BIOLOGICAL SEMANTICS",
+      "rule_ref": "BNS-019 §3",
+      "severity": "HIGH",
+      "description": "Scientific Semantic Convention Envelope: Validates language-neutral observation attribute naming.",
+      "target_type": "semantic_envelope",
+      "input_fixture": "fixtures/valid/semantic-observation.json",
+      "assertion": {
+        "expected_pass": true,
+        "required_invariants": ["valid_attribute_schema"]
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-INP-001",
+      "dimension": "INPUT STATE HONESTY",
+      "rule_ref": "BNS-002 §3.1 (BN-F001)",
+      "severity": "CRITICAL",
+      "description": "Non-Negative Count Invariant: Blocks matrices with negative values from entering discrete models.",
+      "target_type": "matrix",
+      "input_fixture": "fixtures/invalid/negative-counts-trap.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F001",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-INP-002",
+      "dimension": "INPUT STATE HONESTY",
+      "rule_ref": "BNS-002 §3.2 (BN-F001)",
+      "severity": "CRITICAL",
+      "description": "Non-Integer Count Model Invariant: Blocks floating point counts from unadjusted discrete count models.",
+      "target_type": "matrix",
+      "input_fixture": "fixtures/invalid/non-integer-discrete-model.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F001",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-INP-003",
+      "dimension": "INPUT STATE HONESTY",
+      "rule_ref": "BNS-002 §5 (BN-F006)",
+      "severity": "HIGH",
+      "description": "Sample Size Honesty: Enforces minimum sample size threshold (n >= 3) for differential expression.",
+      "target_type": "matrix",
+      "input_fixture": "fixtures/invalid/low-sample-size-de.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F006",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-INP-004",
+      "dimension": "INPUT STATE HONESTY",
+      "rule_ref": "BNS-013 §2",
+      "severity": "HIGH",
+      "description": "Input Data Preflight Audit: Validates clean matrix with verified species and discrete counts.",
+      "target_type": "matrix",
+      "input_fixture": "fixtures/valid/discrete-counts-raw.json",
+      "assertion": {
+        "expected_pass": true,
+        "expected_taxa": "9606"
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-BAK-001",
+      "dimension": "BACKEND IDENTITY",
+      "rule_ref": "BNS-003 §3 (BN-F010)",
+      "severity": "CRITICAL",
+      "description": "Zero Silent Substitution: Intercepts and flags mock or masquerading backend execution.",
+      "target_type": "package",
+      "input_fixture": "fixtures/invalid/silent-backend-substitution.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F010",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Provenance", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-PRV-001",
+      "dimension": "PROVENANCE",
+      "rule_ref": "BNS-006 §2",
+      "severity": "HIGH",
+      "description": "W3C PROV-O Activity Sidecars: Validates complete activity provenance with cryptographic SHA-256 bindings.",
+      "target_type": "provenance",
+      "input_fixture": "fixtures/valid/w3c-prov-sidecar.json",
+      "assertion": {
+        "expected_pass": true,
+        "expected_checksum_algorithm": "sha256"
+      },
+      "applicable_profiles": ["BNS-Provenance", "BNS-Validation", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-WAR-001",
+      "dimension": "CLAIM WARRANT",
+      "rule_ref": "BNS-004 §3 (BNS-017 / BN-F008)",
+      "severity": "CRITICAL",
+      "description": "Evidence-Capped Claim Ceilings: Intercepts causal leaps derived solely from observational correlation.",
+      "target_type": "claim_ir",
+      "input_fixture": "fixtures/invalid/unwarranted-causal-leap.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F008",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Warrant", "BNS-Agent", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-WAR-002",
+      "dimension": "CLAIM WARRANT",
+      "rule_ref": "BNS-001 §6 (BN-F005)",
+      "severity": "CRITICAL",
+      "description": "Cell-Type Hallucination Defense: Blocks arbitrary unreferenced cell-type annotations.",
+      "target_type": "claim_ir",
+      "input_fixture": "fixtures/invalid/cell-type-hallucination.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F005",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Warrant", "BNS-Agent", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-WAR-003",
+      "dimension": "CLAIM WARRANT",
+      "rule_ref": "BNS-004 §2.4 (BN-F002)",
+      "severity": "HIGH",
+      "description": "Multiple Testing Correction Honesty: Blocks claiming significance when FDR correction fails or is omitted.",
+      "target_type": "claim_ir",
+      "input_fixture": "fixtures/invalid/uncorrected-pvalue-claim.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F002",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Warrant", "BNS-Agent", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-WAR-004",
+      "dimension": "CLAIM WARRANT",
+      "rule_ref": "BNS-017 §4",
+      "severity": "HIGH",
+      "description": "Calibrated Claim IR Verification: Validates properly adjusted p-value and associative warrant envelope.",
+      "target_type": "claim_ir",
+      "input_fixture": "fixtures/valid/calibrated-claim-ir.json",
+      "assertion": {
+        "expected_pass": true,
+        "required_evidence_level": "supported_correlative"
+      },
+      "applicable_profiles": ["BNS-Warrant", "BNS-Agent", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-ABS-001",
+      "dimension": "ABSTENTION",
+      "rule_ref": "BNS-005 §2",
+      "severity": "CRITICAL",
+      "description": "Deterministic Precondition Refusal: Enforces structured refusal upon invariant violation.",
+      "target_type": "refusal_card",
+      "input_fixture": "fixtures/valid/structured-abstention.json",
+      "assertion": {
+        "expected_pass": true,
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Warrant", "BNS-Agent", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-ABS-003",
+      "dimension": "ABSTENTION",
+      "rule_ref": "BNS-005 §4",
+      "severity": "CRITICAL",
+      "description": "Zero Silent Fallback to Toy Proxies: Detects and rejects silent degradation into fake random outputs.",
+      "target_type": "package",
+      "input_fixture": "fixtures/invalid/silent-toy-fallback.json",
+      "assertion": {
+        "expected_pass": false,
+        "expected_failure_mode": "BN-F010",
+        "refusal_expected": true
+      },
+      "applicable_profiles": ["BNS-Core", "BNS-Warrant", "BNS-Agent", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-FAI-001",
+      "dimension": "FAILURE HANDLING",
+      "rule_ref": "BNS-014 §2",
+      "severity": "CRITICAL",
+      "description": "BioFailureBench Defense: Ensures runtime correctly identifies canonical failure traps.",
+      "target_type": "refusal_card",
+      "input_fixture": "fixtures/valid/structured-abstention.json",
+      "assertion": {
+        "expected_pass": true,
+        "required_invariants": ["actionable_remediation_present"]
+      },
+      "applicable_profiles": ["BNS-Warrant", "BNS-Validation", "BNS-Full"]
+    },
+    {
+      "id": "BCTK-HST-002",
+      "dimension": "CROSS-HOST CONSISTENCY",
+      "rule_ref": "BNS-008 §3",
+      "severity": "HIGH",
+      "description": "Deterministic Execution Under Fixed Seed: Verifies identical cryptographic digest across heterogeneous host runs.",
+      "target_type": "execution_witness",
+      "input_fixture": "fixtures/valid/deterministic-rng-witness.json",
+      "assertion": {
+        "expected_pass": true,
+        "required_invariants": ["deterministic_match"]
+      },
+      "applicable_profiles": ["BNS-Agent", "BNS-Validation", "BNS-Full"]
+    }
+  ]
+}

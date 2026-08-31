@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="220" height="28" viewBox="0 0 220 28" role="img" aria-label="BNS-conformant: Full Gold">
+  <title>BNS-conformant: Full Gold</title>
+  <linearGradient id="b" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <clipPath id="a">
+    <rect width="220" height="28" rx="4" fill="#fff"/>
+  </clipPath>
+  <g clip-path="url(#a)">
+    <rect width="125" height="28" fill="#1E293B"/>
+    <rect x="125" width="95" height="28" fill="#059669"/>
+    <rect width="220" height="28" fill="url(#b)"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" text-rendering="geometricPrecision" font-size="110">
+    <g transform="translate(10, 6) scale(0.65)">
+      <path d="M4 2c1.5 3 4.5 5 8 5s6.5-2 8-5M4 22c1.5-3 4.5-5 8-5s6.5 2 8 5M12 7v10M7 4.5l10 15M17 4.5l-10 15" stroke="#34D399" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    </g>
+    <text aria-hidden="true" x="720" y="185" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="800">BNS-conformant</text>
+    <text x="720" y="175" fill="#F8FAFC" font-weight="600" transform="scale(.1)" textLength="800">BNS-conformant</text>
+    <text aria-hidden="true" x="1725" y="185" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="750">Full · Gold</text>
+    <text x="1725" y="175" fill="#FFFFFF" font-weight="700" transform="scale(.1)" textLength="750">Full · Gold</text>
+  </g>
+</svg>

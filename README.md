@@ -23,7 +23,7 @@ Large Language Models (LLMs) and autonomous AI agents operating in biology frequ
 * Elevating observational expression correlation to unsupported causal drug mechanism claims.
 * Producing unreplicable, unversioned analyses without cryptographic proof of execution.
 
-The **BioNexus Standard Proposals** provide a framework to transform AI from an unconstrained generative chatbot into a **rigorous scientific collaborator governed by formal epistemic contracts**.
+The **BioNexus Specification Proposals** provide a framework to transform AI from an unconstrained generative chatbot into a **rigorous scientific collaborator governed by formal epistemic contracts**.
 
 ---
 
@@ -49,8 +49,8 @@ The **BioNexus Standard Proposals** provide a framework to transform AI from an 
 | [**BNS-016**](spec/BNS-016-standards-interop.md) | Standards Interoperability | RO-Crate / Workflow Run Crate / IEEE 2791 BCO exports | PROPOSED_STANDARD |
 | [**BNS-017**](spec/BNS-017-claim-semantics-ir.md) | Claim Semantics & Deterministic Warrant IR | Typed Claim IR, epistemic warrant rules | DRAFT_STANDARD |
 | [**BNS-018**](spec/BNS-018-rule-calibration-and-challenge-network.md) | Rule Calibration & Peer Challenge | Sensitivity metrics, peer challenge protocol | DRAFT_STANDARD |
-| [**BNS-019**](spec/BNS-019-scientific-semantic-conventions.md) | Scientific Semantic Conventions | Language-neutral vocabulary for units, claims, evidence | DEVELOPMENT / PROPOSAL |
-| [**BNS-020**](spec/BNS-020-conformance-test-kit.md) | Conformance Test Kit (BCTK) | Target-bound diagnostics & conformance profiles | DEVELOPMENT / DIAGNOSTIC |
+| [**BNS-019**](spec/BNS-019-scientific-semantic-conventions.md) | Scientific Semantic Conventions | Language-neutral vocabulary for units, claims, evidence | DEVELOPMENT |
+| [**BNS-020**](spec/BNS-020-conformance-test-kit.md) | Conformance Test Kit (BCTK) | Target-bound diagnostics & conformance profiles | DEVELOPMENT |
 | [**BNS-021**](spec/BNS-021-evidence-debt.md) | Scientific Evidence Debt | Epistemic DAG amortization & debt scheduling | DEVELOPMENT |
 | [**BNS-022**](spec/BNS-022-scientific-semantics-neutral-governance.md) | Neutral Governance & Institutional Adoption | Independent Council, commercial/certification separation | DRAFT / COUNCIL_FORMING |
 | [**BNS-023**](spec/BNS-023-validation-transparency-network.md) | Validation Transparency Network | Dual-attested validation events and candidate-slot state | DEVELOPMENT |

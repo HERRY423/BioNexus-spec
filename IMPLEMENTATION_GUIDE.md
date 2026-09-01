@@ -1,4 +1,4 @@
-# BioNexus Standard Implementation Guide
+# BioNexus Specification Implementation Guide
 
 This guide provides technical instructions for engineers and software architects implementing standard-conforming runtimes, MCP servers, or agent wrappers against the **BioNexus Specifications (BNS)**.
 
@@ -26,9 +26,11 @@ Outputs MUST be wrapped in a structured EvidenceCard containing execution envelo
 
 ## 3. Reference Implementations
 
-- **Python Reference Runtime**: https://github.com/HERRY423/BioNexus
-- **Nextflow nf-core Module**: modules/local/bns019_receipt
-- **MCP Server Implementation**: bionexus-local-mcp
+The specifications are strictly decoupled from any runtime implementation. The official reference implementations are maintained in the BioNexus runtime repository:
+
+- **BioNexus Python Reference Runtime**: https://github.com/HERRY423/BioNexus
+- **Nextflow nf-core Receipt Module (Reference)**: https://github.com/HERRY423/BioNexus/tree/main/modules/local/bns019_receipt
+- **MCP Server Reference Implementation**: https://github.com/HERRY423/BioNexus/tree/main/src/bionexus/mcp
 
 ---
 
@@ -62,5 +64,3 @@ In your repository `README.md`, embed the badge linked to your verifiable report
 ```markdown
 [![BNS-conformant](https://raw.githubusercontent.com/HERRY423/BioNexus-spec/main/standards/bns-badge/assets/bns-conformant.svg)](https://bionexus.org/verify?report=bns-report.json)
 ```
-
-

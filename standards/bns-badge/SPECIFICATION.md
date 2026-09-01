@@ -1,19 +1,20 @@
 # BioNexus Conformant Badge Specification ("BNS-conformant")
 
-**Status**: Active Standard | **Version**: 1.0.0  
+**Status**: Draft Proposal | **Version**: 1.0.0  
 **Governs**: `standards/bns-badge/`, Badge Visual Grammar, Machine-Readable Metadata, Verification Endpoints, SVG Assets.
 
 ---
 
-## 1. Executive Vision
+## 1. Overview & Purpose
 
-> *"He who issues the certificate of conformity defines the yardstick of the industry."*
+The **`BNS-conformant`** badge provides an open, machine-verifiable indicator of diagnostic compliance with the **BioNexus Specifications (BNS)**. Displaying this badge indicates that a biological AI agent, computational workflow, or analysis tool has executed the **BioNexus Conformance Test Suite (BCTS)** and verified that:
+1. Biological identifiers and scales conform to defined semantic invariants.
+2. Discrete count models reject invalid non-integer or negative inputs (`BN-F001`).
+3. Software execution records verifiable backend provenance without silent mock substitution (`BN-F010`).
+4. Output claims and error handlers emit structured W3C PROV-O provenance sidecars and refusal records.
 
-The **`BNS-conformant`** badge is the universally recognized mark of epistemic reliability and scientific invariant compliance. Displaying this badge signifies that a biological AI agent, computational workflow, or software tool has executed the authoritative **BioNexus Conformance Test Suite (BCTS)** and deterministically proven:
-1. Zero hallucination of biological identifiers or statistical significance.
-2. Strict adherence to negative binomial and discrete count invariants.
-3. Zero silent substitution or mock execution.
-4. Cryptographically verifiable W3C PROV-O provenance.
+> **Conformance Notice (BNS-016 §3 / BNS-022 §7)**:  
+> A BNS diagnostic badge certifies technical execution against specific test vectors. It does not constitute formal regulatory clearance (CLIA/CAP/FDA) or third-party accredited CAB certification unless verified under BNS-022.
 
 ---
 
@@ -41,11 +42,11 @@ All official BNS badges adhere to standard vector geometry and high-contrast, ac
 
 ## 3. Cryptographic Binding & Tamper Evidence
 
-A `BNS-conformant` badge is never a static ungrounded image. Every generated badge contains embedded RDF/XML and JSON-LD metadata binding:
-- **`subject_sha256`**: Exact SHA-256 hash of the target software release / model weight / workflow bundle.
-- **`report_id`**: Canonical identifier of the passing Conformance Test Report.
+A `BNS-conformant` badge is designed to be verifiable against an immutable test report. Generated badge files include machine-readable metadata binding:
+- **`subject_sha256`**: SHA-256 hash of the target software release, workflow bundle, or model artifact.
+- **`report_id`**: Canonical identifier of the corresponding Conformance Test Report.
 - **`report_sha256`**: Cryptographic digest of the test report payload.
-- **`verification_endpoint`**: Public URL where third parties can verify test vectors and signatures.
+- **`verification_endpoint`**: Public URI for inspecting test results.
 
 ```xml
 <metadata id="bns-conformance-metadata">
